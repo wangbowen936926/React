@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom'
 const RootWrap = styled.div`
     position: fixed;
     top: 0;
+    z-index: 99;
     width: -webkit-fill-available;
     height: 3rem;
     font-size: .9rem;

@@ -30,6 +30,9 @@ const config = {
         },{
             path: '/news/superLike',
             component: lazy(() => import('view/module/news/subView/superLike/container/SuperLike'))
+        },{
+            path: '/news/chat/:id',
+            component: lazy(() => import('view/module/news/subView/chat/container/Chat'))
         }
     ]
 }

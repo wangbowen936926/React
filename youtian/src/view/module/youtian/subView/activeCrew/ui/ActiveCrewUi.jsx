@@ -6,6 +6,9 @@ import Tabs from 'components/tabs'
 import Button from 'components/button'
 
 const RootWarp = styled.div`
+    > .tabs-warp{
+        padding-top: 48px;
+    }
     > section{
         height: calc(100vh - 88px);
         overflow-y: auto;
@@ -172,7 +175,9 @@ const ActiveCrewUi = () => {
     return (
         <RootWarp>
             <NavBar title="活动剧组"></NavBar>
-            <Tabs list={tabs} current={current} onChange={ tabChange }></Tabs>
+            <div className="tabs-warp">
+                <Tabs list={tabs} current={current} onChange={ tabChange }></Tabs>
+            </div>
             <section>
                 <CardModule moduleTitle="官方活动" list={active.official}></CardModule>
                 <CardModule moduleTitle="精选" list={active.selected}></CardModule>

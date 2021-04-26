@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { useHistory } from 'react-router-dom'
 
 const RootWarp = styled.div`
     > div{
@@ -108,12 +109,18 @@ const RootWarp = styled.div`
 
 const PersonList = (props) => {
 
+    const history = useHistory();
+
+    const toChat = (userId) => {
+        history.push(`/news/chat/${userId}`);
+    }
+
     return (
         <RootWarp actionBgColor={props.actionBgColor}>
             {
                 props.list.map((item, index) => {
                     return (
-                        <div key={index}>
+                        <div key={index} onClick={() => toChat(item.id)}>
                             <div className="content">
                                 <div>
                                     <img src={ item.avatar } alt="#"/>
