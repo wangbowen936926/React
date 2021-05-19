@@ -57,11 +57,8 @@ const Toast = forwardRef((props, ref) => {
 
     let history = useHistory();
 
-
     // 暴露需要项
-    useImperativeHandle(ref, () => ({
-        show
-    }))
+    useImperativeHandle(ref, () => ({ show }))
 
     // 消息图标
     const icon = () => {
@@ -96,18 +93,14 @@ const Toast = forwardRef((props, ref) => {
         let newConfig = deepMerge(config, options);
         setConfig(newConfig);
         setTimeout(() => {
-            setIsShow(false);
             timeEnd(newConfig);
         }, config.duration)
     }
 
     const timeEnd = (newConfig) => {
-        if(newConfig.url){
-            history.push(config.url);
-        }
-        if(newConfig.goBack){
-            history.goBack();
-        }
+        if(newConfig.url) return history.push(newConfig.url);
+        if(newConfig.goBack) return history.goBack();
+        setIsShow(false);
     }
 
     return (

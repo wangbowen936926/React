@@ -3,6 +3,7 @@ import Template from '../ui/template'
 import Input from '../../../components/input'
 import {InputWarp} from './styled'
 import Toast from '../../../components/toast'
+import request from 'service/request'
 
 class ForgetPassword extends Component {
     constructor(props) {
@@ -26,7 +27,21 @@ class ForgetPassword extends Component {
     }
 
     update = () => {
-        this.state.toastRef.current.show({title: '已修改', goBack: true});
+
+        let param = {
+            phone: this.state.phone,
+            password: this.state.password
+        }
+
+        request.forgetPassword({data: param}).then(res => {
+            if(res.code === 0){
+                this.state.toastRef.current.show({title: '已修改', goBack: true});
+            }else{
+                this.state.toastRef.current.show({icon: false, title: '修改失败，稍后重试!'});
+            }
+        }).catch(err => {
+            this.state.toastRef.current.show({icon: false, title: '修改失败，稍后重试!'});
+        })
     }
 
     render () {

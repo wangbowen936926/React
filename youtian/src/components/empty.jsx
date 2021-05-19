@@ -44,7 +44,7 @@ const Empty = (props) => {
                 {
                     props.isShowButton 
                     && 
-                    <Button size="mini" style={{width: '5rem', backgroundImage: 'linear-gradient(to right, #f72b6a, #f96254)'}} onClick={() => props.onClick() }>
+                    <Button size="mini" style={{width: '5rem', marginTop: '.8rem', backgroundImage: 'linear-gradient(to right, #f72b6a, #f96254)'}} onClick={() => props.onClick() }>
                         { props.buttonText }
                     </Button>
                 }

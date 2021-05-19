@@ -23,7 +23,7 @@ const GroupSuspensionButton = (props) => {
     const button = useRef(null);
 
     const test = (e, index) => {
-        // console.log(e, 'but')
+        console.log(e, 'but')
         props.onClick(index);
         // e.nativeEvent.stopImmediatePropagation();
         // document.body.addEventListener('click', e => {

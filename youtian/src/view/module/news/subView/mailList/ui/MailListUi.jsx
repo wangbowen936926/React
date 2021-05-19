@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import NavBar from 'components/navbar'
 import Empty from 'components/empty'
 import PersonList from 'view/module/news/ui/PersonList'
+import Popup from 'components/popup'
 
 const RootWarp = styled.div`
     height: 100vh;
@@ -16,6 +17,7 @@ const RootWarp = styled.div`
 const MailList = (props) => {
 
     const [person, setPerson] = useState([]);
+    const [showPopup, setShowPopup] = useState(false);
 
     useEffect(() => {
         setPerson([
@@ -42,7 +44,15 @@ const MailList = (props) => {
     }, [])
 
     const relieve = (id) => {
-        console.log('解除：' + id);
+        setShowPopup(true);
+    }
+
+    const onCancel = () => {
+        setShowPopup(false);
+    }
+
+    const onConfirm = () => {
+        setShowPopup(false);
     }
 
 
@@ -58,6 +68,8 @@ const MailList = (props) => {
                     <PersonList list={person} actionText="解除绑定" actionBgColor="#FF2556" onAction={ relieve } />
                 }
             </section>
+            {/* 弹框 */}
+            <Popup show={showPopup} title="解除匹配" titleContent="你确定要与告白草莓解除匹配关系吗？" onCancel={ onCancel } onConfirm={ onConfirm }></Popup>
         </RootWarp>
     )
 }

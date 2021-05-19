@@ -9,14 +9,16 @@ const RootWarp = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 0 .9rem;
+    background-color: #ffffff;
     span{
         font-size: .8rem;
     }
     .active{
-        font-weight: bold;
+        color: ${props => props.activeColor !== '' ? props.activeColor : 'unset'};
+        font-weight: ${props => props.activeColor === '' ? 600 : 'unset'};
     }
     .inactive{
-        color: #666666;
+        color: ${props => props.inactiveColor};
     }
     .tab{
         width: .6rem;
@@ -45,7 +47,7 @@ const Tabs = (props) => {
     })
 
     return (
-        <RootWarp tabOffsetLeft={tabOffsetLeft}>
+        <RootWarp tabOffsetLeft={tabOffsetLeft} activeColor={ props.activeColor } inactiveColor={ props.inactiveColor }>
             {
                 props.list.map((item, index) => {
                     return (
@@ -63,13 +65,17 @@ const Tabs = (props) => {
 Tabs.defaultProps = {
     list: [],
     current: 0,
+    activeColor: '',
+    inactiveColor: '#666666',
     onChange: () => false
 }
 
 Tabs.propTypes = {
     list: PropTypes.array,
     current: PropTypes.number,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    activeColor: PropTypes.string,
+    inactiveColor: PropTypes.string
 }
 
 export default Tabs;

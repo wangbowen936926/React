@@ -42,11 +42,12 @@ const Block = (props) => {
     const clickBlock = (index) => {
         switch(index){
             case 1:
+                history.push('/youtian/extension');
                 break;
             case 2:
+                history.push('/youtian/smallClass');
                 break;
             case 3:
-                console.log(history, '111')
                 history.push('/youtian/active');
                 break;
             default:
@@ -61,8 +62,8 @@ const Block = (props) => {
                 <h6>心动跨越山海</h6>
             </div>
             <div onClick={() => clickBlock(2) }>
-                <h5>语音连麦</h5>
-                <h6>TA就在这里</h6>
+                <h5>优甜小课堂</h5>
+                <h6>戳这里立即脱单</h6>
             </div>
             <div onClick={() => clickBlock(3) }>
                 <h5>活动剧组</h5>

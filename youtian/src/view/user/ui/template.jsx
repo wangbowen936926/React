@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const RootWarp = styled.div`
+    padding-top: 3rem;
     .content{
         padding: 0 2rem
     }
@@ -28,7 +29,7 @@ const template = (props) => {
                 </Title>
                 { props.children }
             </div>
-            <Button size="medium" color="#fff" style={{backgroundImage: 'linear-gradient(to right, #f72f69, #f95a57)'}} onClick={() => props.onClick()}>
+            <Button size="medium" color="#fff" style={ props.buttonStyle } onClick={() => props.onClick()}>
                 { props.buttonText }
             </Button>
         </RootWarp>
@@ -38,11 +39,13 @@ const template = (props) => {
 template.defaultProps = {
     title: '',
     buttonText: '确定',
+    buttonStyle: {backgroundImage: 'linear-gradient(to right, #f72f69, #f95a57)'},
     onClick: () => false
 }
 
 template.propTypes = {
     title: PropTypes.string,
+    buttonStyle: PropTypes.object,
     buttonText: PropTypes.string,
     onClick: PropTypes.func
 }

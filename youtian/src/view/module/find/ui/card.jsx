@@ -129,17 +129,10 @@ const UserInfo = styled.div`
 const Card = (props) => {
 
     const onTouchStart = (e) => {
-        console.log(e)
-        if(e.target && e.target.type !== 'touchstart'){
-            return ;
-        }
         //props.onTouchStart(e);
     }
 
     const onTouchEnd = (e) => {
-        if(e.target && e.target.type !== 'onTouchEnd'){
-            return ;
-        }
         props.onTouchEnd(e);
     }
 

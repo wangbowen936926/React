@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Template from './template'
-import Input from '../../../components/input'
+import Input from 'components/input'
 import styled from 'styled-components'
 
 const InputWarp = styled.div`
@@ -37,13 +37,9 @@ class Register extends Component {
         this.setState({password: e.target.value});
     }
 
-    register = () => {
-        console.log('提交')
-    }
-
     render () {
         return (
-            <Template title={this.props.title} buttonText={this.props.buttonText} onClick={ this.register }>
+            <Template title={this.props.title} buttonText={this.props.buttonText} onClick={() => this.props.onClick() }>
                 <InputWarp>
                     <Input value={this.state.phone} mode="phoneNumber"  placeholder="请输入注册手机号" onChange={this.getInputPhone}></Input>
                 </InputWarp>

@@ -32,9 +32,13 @@ const RootWarp = styled.div`
         right: 1rem;
     }
     .getCodeBtn{
+        height: 70%;
         color: #fff;
-        font-size: .5rem;
-        padding: .4rem .6rem;
+        font-size: .8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 .6rem;
         border-radius: 1rem;
         background-image: linear-gradient(to right, #f72f69, #f95a57);
     }
@@ -123,7 +127,7 @@ Input.propTypes = {
     //
     value: PropTypes.any,
     // 输入框模型
-    mode: PropTypes.string,
+    mode: PropTypes.oneOf(['default', 'verificationCode', 'phoneNumber']),
     // 输入框类型
     type: PropTypes.string,
     // 是否显示边框

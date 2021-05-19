@@ -6,21 +6,13 @@ import {RootWrap} from './styled'
 
 const Login = (props) => {
 
-    const mobilePhone = () => {
-        return <img src={mobilePhoneIcon} alt="手机图标"></img>
-    }
+    const mobilePhone = () => <img src={mobilePhoneIcon} alt="手机图标"></img>
 
-    const weixin = () => {
-        return <img src={weixinIcon} alt="微信图标"></img>
-    }
+    const weixin = () => <img src={weixinIcon} alt="微信图标"></img>
 
-    const mobilePhoneLogin = () => {
-        props.history.push('/accountLogin');
-    }
+    const mobilePhoneLogin = () => props.history.push('/accountLogin');
 
-    const  weixinLogin = () => {
-        props.history.push('/wechatBinding');
-    }
+    const  weixinLogin = () => props.history.push('/wechatBinding');
 
     return (
         <RootWrap>

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router} from 'react-router-dom'
+import { HashRouter as Router} from 'react-router-dom'
 import RouterView from './components/router-view'
 import config from './routers/index'
 import './App.css';

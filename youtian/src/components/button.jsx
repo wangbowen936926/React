@@ -20,7 +20,7 @@ const ButtonWrap = styled.div`
     margin-bottom: ${props => props.marginBottom + 'rem'};
     border-radius: ${props => props.shape === 'circle' ? '3rem' : '0'};
     background-color: ${props => props.bgColor};
-    box-shadow: ${props => props.isShadow ? '.1rem .1rem .5rem #999999' : 'unset'};
+    box-shadow: ${props => props.isShadow ? '0.1rem 0.1rem 0.6rem #cccccc' : 'unset'};
     ${props => props.style}
     img {
         width: ${props => props.size === 'default' ? '1.2rem' : props.size === 'medium' ? '1rem' : props.size === 'mini' ? '.8rem' : '1.2rem'};;
@@ -35,7 +35,7 @@ const button = (props) => {
     return (
         <ButtonWrap {...props} onClick={() => props.onClick()}>
             { props.icon }
-            { props.children }
+            { props.children || '确定' }
         </ButtonWrap>
     )
 }
